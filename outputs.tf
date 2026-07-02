@@ -34,3 +34,13 @@ output "application_id" {
   description = "The AppConfig application ID."
   value       = aws_appconfig_environment.environment.application_id
 }
+
+output "description" {
+  description = "The environment description."
+  value       = aws_appconfig_environment.environment.description
+}
+
+output "monitors" {
+  description = "The CloudWatch alarms monitored during deployments."
+  value       = aws_appconfig_environment.environment.monitor
+}

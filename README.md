@@ -52,7 +52,9 @@ No modules.
 |------|-------------|
 | <a name="output_application_id"></a> [application\_id](#output\_application\_id) | The AppConfig application ID. |
 | <a name="output_arn"></a> [arn](#output\_arn) | The ARN of the environment. |
+| <a name="output_description"></a> [description](#output\_description) | The environment description. |
 | <a name="output_id"></a> [id](#output\_id) | The environment ID. |
+| <a name="output_monitors"></a> [monitors](#output\_monitors) | The CloudWatch alarms monitored during deployments. |
 | <a name="output_name"></a> [name](#output\_name) | The name of the environment. |
 | <a name="output_state"></a> [state](#output\_state) | The environment state. |
 <!-- END_TF_DOCS -->
