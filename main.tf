@@ -10,8 +10,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-resource "random_string" "string" {
-  length  = var.length
-  numeric = var.number
-  special = var.special
+resource "aws_appconfig_environment" "environment" {
+  application_id = var.application_id
+  name           = var.name
+  description    = var.description
+  region         = var.region
+  tags           = var.tags
+
+  dynamic "monitor" {
+    for_each = var.monitors
+    content {
+      alarm_arn      = monitor.value.alarm_arn
+      alarm_role_arn = monitor.value.alarm_role_arn
+    }
+  }
 }

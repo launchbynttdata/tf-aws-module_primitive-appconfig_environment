@@ -12,35 +12,30 @@
 
 output "id" {
   description = "The environment ID."
-  value       = aws_appconfig_environment.environment.environment_id
+  value       = module.environment.id
 }
-
 output "arn" {
   description = "The ARN of the environment."
-  value       = aws_appconfig_environment.environment.arn
+  value       = module.environment.arn
 }
-
 output "name" {
   description = "The name of the environment."
-  value       = aws_appconfig_environment.environment.name
+  value       = module.environment.name
 }
-
 output "state" {
   description = "The environment state."
-  value       = aws_appconfig_environment.environment.state
+  value       = module.environment.state
 }
-
 output "application_id" {
-  description = "The AppConfig application ID."
-  value       = aws_appconfig_environment.environment.application_id
+  description = "The application ID."
+  value       = module.environment.application_id
+}
+output "expected_name" {
+  description = "Expected environment name."
+  value       = module.resource_names["environment"].standard
 }
 
-output "description" {
-  description = "The environment description."
-  value       = aws_appconfig_environment.environment.description
-}
-
-output "monitors" {
-  description = "The CloudWatch alarms monitored during deployments."
-  value       = aws_appconfig_environment.environment.monitor
+output "region" {
+  description = "The AWS Region where the example resources are deployed."
+  value       = data.aws_region.current.region
 }
