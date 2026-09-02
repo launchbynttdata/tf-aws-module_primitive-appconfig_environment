@@ -26,15 +26,15 @@ func TestComposableCompleteReadOnly(t *testing.T, ctx types.TestContext) {
 
 func verifyEnvironment(t *testing.T, ctx types.TestContext) (*appconfig.Client, string) {
 	opts := ctx.TerratestTerraformOptions()
-	region := terraform.Output(t, opts, "region")
-	applicationID := terraform.Output(t, opts, "application_id")
-	id := terraform.Output(t, opts, "id")
-	arn := terraform.Output(t, opts, "arn")
-	name := terraform.Output(t, opts, "name")
-	state := terraform.Output(t, opts, "state")
+	region := terraform.OutputContext(t, context.Background(), opts, "region")
+	applicationID := terraform.OutputContext(t, context.Background(), opts, "application_id")
+	id := terraform.OutputContext(t, context.Background(), opts, "id")
+	arn := terraform.OutputContext(t, context.Background(), opts, "arn")
+	name := terraform.OutputContext(t, context.Background(), opts, "name")
+	state := terraform.OutputContext(t, context.Background(), opts, "state")
 
 	require.NotEqual(t, "", id)
-	assert.Equal(t, terraform.Output(t, opts, "expected_name"), name)
+	assert.Equal(t, terraform.OutputContext(t, context.Background(), opts, "expected_name"), name)
 
 	client := appConfigClient(t, region)
 	environment, err := client.GetEnvironment(context.Background(), &appconfig.GetEnvironmentInput{
